@@ -1,9 +1,13 @@
 {
+  "name": "finance_tax_share",
+  "version": "0.0.1",
   "private": true,
+  "description": "finance tax data share",
   "scripts": {
     "start": "umi dev",
     "build": "umi build",
     "postinstall": "umi generate tmp",
+    "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx ",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage"
@@ -12,6 +16,8 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
+    "**/*.less": "stylelint --syntax less",
+    "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
     "*.{js,jsx,less,md,json}": [
       "prettier --write"
     ],
@@ -19,20 +25,45 @@
       "prettier --parser=typescript --write"
     ]
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ],
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@ant-design/pro-layout": "^6.5.0",
+    "@umijs/route-utils": "^2.0.0",
+    "antd": "^4.20.0",
+    "classnames": "^2.3.0",
+    "lodash": "^4.17.0",
+    "moment": "^2.29.0",
     "react": "17.x",
     "react-dom": "17.x",
     "umi": "^3.5.28"
   },
   "devDependencies": {
+    "@playwright/test": "^1.17.0",
+    "@types/classnames": "^2.3.1",
+    "@types/express": "^4.17.0",
+    "@types/history": "^4.7.0",
+    "@types/jest": "^26.0.0",
+    "@types/lodash": "^4.14.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@umijs/fabric": "^2.11.1",
+    "@umijs/plugin-qiankun": "^2.39.2",
     "@umijs/preset-react": "1.x",
     "@umijs/test": "^3.5.28",
+    "cross-env": "^7.0.0",
+    "eslint": "^7.32.0",
+    "husky": "^7.0.4",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.0",
     "typescript": "^4.1.2",
     "yorkie": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=12.0.0"
   }
 }
