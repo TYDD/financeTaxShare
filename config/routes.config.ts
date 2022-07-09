@@ -1,34 +1,20 @@
 export default [
   {
-    path: '/welcome',
-    name: 'welcome',
-    component: './Welcome',
-  },
-  {
-    path: '/admin',
-    name: 'admin',
+    path: '/',
+    component: '../layouts/BasicLayout',
     routes: [
       {
-        path: '/admin/sub-page',
-        name: 'sub-page',
+        path: '/welcome',
+        name: 'welcome',
         component: './Welcome',
       },
-      // {
-      //   component: './404',
-      // },
+      {
+        path: '/404',
+        component: './404',
+      },
+      {
+        redirect: '/welcome',
+      },
     ],
   },
-  // {
-  //   name: 'list.table-list',
-  //   icon: 'table',
-  //   path: '/list',
-  //   component: './TableList',
-  // },
-  {
-    path: '/',
-    redirect: '/welcome',
-  },
-  // {
-  //   component: './404',
-  // },
 ];

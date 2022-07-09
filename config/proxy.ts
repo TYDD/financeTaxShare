@@ -6,6 +6,14 @@
  * For details, please see
  * https://pro.ant.design/docs/deploy
  */
+export interface Proxy {
+  [index: string]: {
+    target: string;
+    changeOrigin?: boolean;
+    pathRewrite?: { [index: string]: string };
+  };
+}
+
 export default {
   dev: {
     // localhost:8000/api/** -> https://preview.pro.ant.design/api/**
@@ -16,19 +24,11 @@ export default {
       // 依赖 origin 的功能可能需要这个，比如 cookie
       changeOrigin: true,
     },
-  },
-  test: {
-    '/api/': {
-      target: 'https://proapi.azurewebsites.net',
+    '/coapi/': {
+      target: 'http://workbench.fat.yzf.net',
       changeOrigin: true,
-      pathRewrite: { '^': '' },
     },
   },
-  pre: {
-    '/api/': {
-      target: 'your pre url',
-      changeOrigin: true,
-      pathRewrite: { '^': '' },
-    },
-  },
+  test: {},
+  pre: {},
 };

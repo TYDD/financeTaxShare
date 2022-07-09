@@ -14,10 +14,9 @@ const proSettings: DefaultSettings = {
   primaryColor: '#1890ff',
   layout: 'side',
   contentWidth: 'Fluid',
-  fixedHeader: true,
-  autoHideHeader: false,
-  headerHeight: 40,
-  fixSiderbar: true,
+  fixedHeader: false,
+  autoHideHeader: true,
+  fixSiderbar: false,
   menu: {
     locale: false,
   },

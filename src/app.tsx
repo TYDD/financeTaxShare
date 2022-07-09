@@ -2,6 +2,12 @@ import { history, setCreateHistoryOptions } from 'umi';
 
 // const isDev = process.env.NODE_ENV === 'development';
 
+declare global {
+  interface Window {
+    __POWERED_BY_QIANKUN__?: boolean;
+  }
+}
+
 function getRouterBaseName() {
   const base = '/vat';
   const pathname = history.location.pathname;
